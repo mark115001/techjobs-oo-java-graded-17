@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import javax.xml.namespace.QName;
 
+import static java.lang.System.lineSeparator;
+import static java.lang.System.mapLibraryName;
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -39,6 +41,25 @@ public class JobTest {
         Job job2 = new Job();
         assertFalse(job1.equals(job2));
 
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job_string_test = new Job("Web Developer", new Employer("LaunchCode"), new Location("STL"), new PositionType( "Back-end developer"), new CoreCompetency("Java"));
+        String firstChar = String.valueOf(job_string_test.toString().charAt(0));
+        String lastChar = String.valueOf(job_string_test.toString().charAt(job_string_test.toString().length()-1));
+        assertEquals(firstChar, lineSeparator());
+        assertEquals(lastChar, lineSeparator());
+
+
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
     }
 }
 

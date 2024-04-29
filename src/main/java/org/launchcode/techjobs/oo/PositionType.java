@@ -26,18 +26,18 @@ public class PositionType {
 
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when  ---Completed
     //  their id fields match.
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof PositionType)) return false;
-//        PositionType that = (PositionType) o;
-//        return id == that.id;
-//    }
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id);
-//    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PositionType)) return false;
+        PositionType that = (PositionType) o;
+        return id == that.id;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     // Getters and Setters:
 

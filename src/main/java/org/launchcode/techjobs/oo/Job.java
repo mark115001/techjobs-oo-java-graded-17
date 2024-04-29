@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.util.Objects.isNull;
+
 public class Job {
 
     private int id;
@@ -41,6 +43,37 @@ public class Job {
         Job that = (Job) o;
         return id == that.id;
     }
+
+
+
+//    @Override
+//    public String toString() {
+//        String newLine = System.lineSeparator();
+////        int j=10;
+////        char c = (char)j;
+////        String output = (char)(10) + "Hello World" + (char)(10);
+////        String output = c + "Hello World" + c;
+//        String output = newLine + "Hello World" + newLine;
+//        return output;
+//
+//    }
+
+
+
+
+    @Override
+    public String toString() {
+
+        String outPut = "\n" + "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
+
+        return outPut;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id);
