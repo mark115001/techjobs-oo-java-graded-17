@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 
+import org.hamcrest.core.IsNot;
+
 import java.util.Objects;
 
 import static java.util.Objects.isNull;
@@ -26,11 +28,11 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
+        this.name = name != "" ? name : "Data not available";
+        this.employer = !(employer.toString().isEmpty()) ? employer : new Employer("Data not available");
+        this.location = !(location.toString().isEmpty()) ? location: new Location("Data not available");
+        this.positionType = !(positionType.toString().isEmpty()) ? positionType : new PositionType("Data not available");
+        this.coreCompetency = !(coreCompetency.toString().isEmpty()) ? coreCompetency : new CoreCompetency("Data not available");
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields ---Completed
@@ -44,33 +46,15 @@ public class Job {
         return id == that.id;
     }
 
-
-
-//    @Override
-//    public String toString() {
-//        String newLine = System.lineSeparator();
-////        int j=10;
-////        char c = (char)j;
-////        String output = (char)(10) + "Hello World" + (char)(10);
-////        String output = c + "Hello World" + c;
-//        String output = newLine + "Hello World" + newLine;
-//        return output;
-//
-//    }
-
-
-
-
     @Override
     public String toString() {
 
         String outPut = "\n" + "ID: " + id + "\n" +
-                "Name: " + name + "\n" +
-                "Employer: " + employer + "\n" +
-                "Location: " + location + "\n" +
-                "Position Type: " + positionType + "\n" +
-                "Core Competency: " + coreCompetency + "\n";
-
+                    "Name: " + name + "\n" +
+                    "Employer: " + employer + "\n" +
+                    "Location: " + location + "\n" +
+                    "Position Type: " + positionType + "\n" +
+                    "Core Competency: " + coreCompetency + "\n";
         return outPut;
     }
 
@@ -79,6 +63,13 @@ public class Job {
         return Objects.hash(id);
     }
 
+    public int jobCheckOnly() {
+        if (name == "" && employer.equals("") && location.equals("") && positionType.equals("") && coreCompetency.equals("")) {
+            return 1; //only ID found
+        } else {
+            return 0; //more than just ID found
+        }
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID ---Completed
     //  and id.

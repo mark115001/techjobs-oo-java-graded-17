@@ -58,8 +58,5 @@ public class JobTest {
     public void testToStringContainsCorrectLabelsAndData() {
     }
 
-    @Test
-    public void testToStringHandlesEmptyField() {
-    }
 }
 
