@@ -50,12 +50,17 @@ public class JobTest {
         String lastChar = String.valueOf(job_string_test.toString().charAt(job_string_test.toString().length()-1));
         assertEquals(firstChar, lineSeparator());
         assertEquals(lastChar, lineSeparator());
-
-
     }
 
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job_string_test = new Job("Web Developer", new Employer(""), new Location("STL"), new PositionType( ""), new CoreCompetency("Java"));
+
+
     }
 
 }
