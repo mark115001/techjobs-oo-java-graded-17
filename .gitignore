@@ -40,3 +40,12 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### added by me to clear untracked files
+wrapper/
+native/
+jdks/
+daemon/
+caches/
+.tmp/
+.idea/.name
