@@ -49,12 +49,20 @@ public class Job {
     @Override
     public String toString() {
 
-        String outPut = "\n" + "ID: " + id + "\n" +
+        String outPut;
+
+        if (this.name == null && this.employer == null && this.location == null && this.positionType == null && this.coreCompetency == null ) {
+            outPut = "\nID: No information for this ID" +"\nOOPS! This job does not seem to exist.\n";
+            nextId--;
+        } else {
+
+            outPut = "\n" + "ID: " + id + "\n" +
                     "Name: " + name + "\n" +
                     "Employer: " + employer + "\n" +
                     "Location: " + location + "\n" +
                     "Position Type: " + positionType + "\n" +
                     "Core Competency: " + coreCompetency + "\n";
+        }
         return outPut;
     }
 
@@ -63,13 +71,13 @@ public class Job {
         return Objects.hash(id);
     }
 
-    public int jobCheckOnly() {
-        if (name == "" && employer.equals("") && location.equals("") && positionType.equals("") && coreCompetency.equals("")) {
-            return 1; //only ID found
-        } else {
-            return 0; //more than just ID found
-        }
-    }
+//    public boolean jobCheckOnly() {
+//        if (this.name == null && employer.getValue() && location.equals(null) && positionType.equals(null) && coreCompetency.equals(null)) {
+//            return true; //only ID found
+//        } else {
+//            return false; //more than just ID found
+//        }
+//    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID ---Completed
     //  and id.

@@ -4,8 +4,9 @@ import org.junit.Test;
 
 import javax.xml.namespace.QName;
 
-import static java.lang.System.lineSeparator;
-import static java.lang.System.mapLibraryName;
+import java.sql.SQLOutput;
+
+import static java.lang.System.*;
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -45,9 +46,9 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
-        Job job_string_test = new Job("Web Developer", new Employer("LaunchCode"), new Location("STL"), new PositionType( "Back-end developer"), new CoreCompetency("Java"));
+        Job job_string_test = new Job("Web Developer", new Employer("LaunchCode"), new Location("STL"), new PositionType("Back-end developer"), new CoreCompetency("Java"));
         String firstChar = String.valueOf(job_string_test.toString().charAt(0));
-        String lastChar = String.valueOf(job_string_test.toString().charAt(job_string_test.toString().length()-1));
+        String lastChar = String.valueOf(job_string_test.toString().charAt(job_string_test.toString().length() - 1));
         assertEquals(firstChar, lineSeparator());
         assertEquals(lastChar, lineSeparator());
     }
@@ -58,10 +59,19 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job job_string_test = new Job("Web Developer", new Employer(""), new Location("STL"), new PositionType( ""), new CoreCompetency("Java"));
+        Job job_string_test = new Job("Web Developer", new Employer(""), new Location("STL"), new PositionType(""), new CoreCompetency("Java"));
 
 
     }
 
+    @Test
+    public void emptyJobObject() {
+        Job test_Job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+            assertEquals("Data not available", test_Job.getName());
+            assertEquals("Data not available", test_Job.getEmployer().getValue());
+            assertEquals("Data not available", test_Job.getLocation().getValue());
+            assertEquals("Data not available", test_Job.getPositionType().getValue());
+            assertEquals("Data not available", test_Job.getCoreCompetency().getValue());
+    }
 }
 
