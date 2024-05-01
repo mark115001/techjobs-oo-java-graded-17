@@ -41,6 +41,7 @@ public class TestTaskFive extends AbstractTest {
         assertEquals(lastChar, lineSeparator());
     }
 
+
     @Test
     public void testTestToStringContainsCorrectLabelsAndDataExists () throws ClassNotFoundException {
         Class jobTestClass = getClassByName("JobTest");
